@@ -1,0 +1,123 @@
+
+:host {
+    width: 100%;
+   
+}
+
+.top-nav{
+    background-color: var(--background-dark);
+    color: white;
+    height: 4em;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    font-size: large
+}
+
+.nav-links{
+    background-color: white;
+    display: flex;
+    list-style: none;
+    gap: 3px;
+    color: grey;
+    padding: 1em;
+    li:last-child{
+        color: black;
+    }
+}
+
+.navbar-main{
+    background-color: white;
+    display: flex;
+    padding: 1em;
+    flex-direction: column;
+    gap: 2em;
+
+    .navbar-main__body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+
+        .navbar-main__image{
+            height: 6em;
+        }
+        .navbar-main__text{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            h2{
+                font-weight: 500;
+            }
+
+            p{
+                color: grey;
+            }
+        }
+    }
+    .navbar-main__stats{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        
+        div{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            vertical-align: text-bottom;
+
+            p{
+                color: grey;
+            }
+
+            .stat{
+                display: flex;
+                font-size: xx-large;
+                font-weight: 500;
+                align-items: flex-end;
+                vertical-align: bottom;
+                width: max-content;
+                color: black;
+                span{
+                    font-size: large;
+                    margin-left: 4px;
+                    margin-bottom: 4px;
+                    color: grey;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width:481px){
+    .navbar-main{
+        .navbar-main__body{
+            flex-direction: row;
+        }
+    }
+}
+
+@media (min-width:769px){
+    .top-nav, .nav-links, .navbar-main{
+        padding-inline: 5%;
+    }
+
+    
+
+    .navbar-main{
+        flex-direction: row;
+    
+        .navbar-main__stats{
+            gap: 2em;
+
+        }
+    
+    }
+
+}
+
+@media (min-width:1201px){
+    .top-nav, .nav-links, .navbar-main{
+        padding-inline: 10%;
+    }
+}

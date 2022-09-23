@@ -1,52 +1,43 @@
-interface VehicleInterface {
-  getCurrentSpeed: () => void;
-  setCurrentSpeed: (speed:number) => void;
-  accelerateVehicle: () => void;
-  decelerateVehicle: () => void;
-}
 
-type vehicleTypes =  Car | Plane | Boat | any
-
-
-abstract class Vehicle implements VehicleInterface {
+abstract class Vehicle {
   
-  constructor(private name: string, private currentSpeed: number) {
-    if (currentSpeed < 0) {
-        this.currentSpeed = 0;
-    } else if (currentSpeed > 200) {
-      this.currentSpeed = 200;
+  constructor(private _name: string, private _currentSpeed: number) {
+    if (_currentSpeed < 0) {
+        this._currentSpeed = 0;
+    } else if (_currentSpeed > 200) {
+      this._currentSpeed = 200;
     } else {
-      this.currentSpeed = currentSpeed;
+      this._currentSpeed = _currentSpeed;
     };
   }
 
-  getName () {
-    return this.name
+  get name () {
+    return this._name
   }
   
-  getCurrentSpeed () {
-    return this.currentSpeed
+  get currentSpeed () {
+    return this._currentSpeed
   }
 
-  setCurrentSpeed (speed:number) {
-    this.currentSpeed = speed
+  set currentSpeed (speed:number) {
+    this._currentSpeed = speed
   }
 
   accelerateVehicle () {
     let newSpeed = this.currentSpeed + 1;
     if (newSpeed > 200) {
-        this.setCurrentSpeed(200);
+        this.currentSpeed = 200;
     } else {
-        this.setCurrentSpeed(newSpeed);
+        this.currentSpeed = newSpeed;
     }
   }
 
   decelerateVehicle () {
     let newSpeed = this.currentSpeed - 1;
     if (newSpeed < 0) {
-        this.setCurrentSpeed(0);
+        this.currentSpeed = 0;
     } else {
-        this.setCurrentSpeed(newSpeed);
+        this.currentSpeed = newSpeed;
     }
   }
 }
@@ -68,10 +59,12 @@ const boeing = new Plane("boeing", 200);
 
 vehicleArray.push(hondaCivic, chevrolet, gryllindae, titanic, tango, boeing);
 
-function filterArrayByType (array:Vehicle[], type:vehicleTypes)  {
+type vehicleTypes =  Car | Plane | Boat
+
+function filterArrayByType (array:Vehicle[], type:vehicleTypes | any)  {
     array.map (vehicle => {
         if(vehicle instanceof type){
-            console.log(vehicle.getCurrentSpeed())
+            console.log(vehicle.currentSpeed)
         }
     })
 }
@@ -79,10 +72,9 @@ function filterArrayByType (array:Vehicle[], type:vehicleTypes)  {
 vehicleArray.map((vehicle) => {
   for (var i = 0; i < 2; i++) vehicle.accelerateVehicle();
   for (var i = 0; i < 10; i++) vehicle.decelerateVehicle();
-  let vehicleName = vehicle.getName();
-  let vehicleSpeed = vehicle.getCurrentSpeed();
+
   console.log(
-    `Vehicle with name ${vehicleName} has a speed of ${vehicleSpeed} km/h`
+    `Vehicle with name ${vehicle.name} has a speed of ${vehicle.currentSpeed} km/h`
   );
 });
 

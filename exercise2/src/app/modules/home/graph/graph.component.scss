@@ -1,0 +1,60 @@
+:host{
+    margin: 1em;
+
+}
+
+.graph__title{
+    background-color: white;
+    padding: 1em;
+    margin-bottom: 3px;
+    font-weight: 500;
+   
+}
+
+.graph__main{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    align-items: center;
+    
+
+    img{
+        max-width: 30em;
+        width: 80%;
+    }
+
+    ul{ 
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        padding: 1em;
+        gap: 1em;
+        flex-wrap: wrap;
+        li:first-child {
+            color: blue;
+        }
+        li:nth-child(2){
+            color: yellow;
+        }
+        li:last-child {
+            color: green;
+        }
+
+        li{
+            font-size: medium;
+            color: grey;
+            width: max-content;
+            span:first-child{
+                color: grey;
+            }
+            span:last-child{
+                color: black;
+                font-size: larger;
+            }
+        }
+    }
+}
+
+.graph__title, .graph__main{
+    margin-inline: 2rem;
+}
