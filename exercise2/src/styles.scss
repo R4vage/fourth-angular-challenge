@@ -18,3 +18,23 @@ html {
 body{
   background-color: var(--background-color);
 }
+
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+/* Base */
+::-webkit-scrollbar-track {
+  background: #b2d5f1;
+}
+
+/* Scroll */
+::-webkit-scrollbar-thumb {
+  background: #32415B;
+}
+
+/* Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #03172D;
+}

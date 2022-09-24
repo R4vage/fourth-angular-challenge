@@ -1,0 +1,38 @@
+
+.post-list__title{
+    background-color: white;
+    height: 4rem;
+    padding-inline: 1em;
+    margin-bottom: 3px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.post-list__main{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    post{
+  
+        .post{
+
+            .post__main{
+                color: red!important;
+            }
+            
+        }
+       
+    }
+}
+
+.post-list__title, .post-list__main{
+    margin-inline: 0rem;
+}
+
+@media (min-width:481px) {
+    .post-list__title, .post-list__main{
+        margin-inline: 0.7rem;
+    }
+}

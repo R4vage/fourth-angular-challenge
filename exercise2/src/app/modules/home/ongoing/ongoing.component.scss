@@ -7,7 +7,8 @@
     align-items: center;
     justify-content: space-between;
     background-color: white;
-    padding: 1em;
+    height: 4rem;
+    padding-inline: 1em;
     h3{
         font-weight: 500;
     }
@@ -21,15 +22,23 @@
 .news-list{
     background-color: white;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18em, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18em, 1));
 }
 
 .ongoing__header, .news-list{
-    margin-inline: 2rem;
+    margin-inline: 0rem;
 }
 
-/* @media (min-width:1201px){
+@media (min-width:481px) {
     .ongoing__header, .news-list{
-        margin-inline: 10%;
+        margin-inline: 0.7rem;
     }
-} */
+}
+
+
+@media (min-width:769px) {
+    .news-list{
+        grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+    }
+    
+}

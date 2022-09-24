@@ -1,0 +1,37 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+@media (min-width:1025px) {
+    :host{
+        display: grid;
+        grid-template-areas: 
+            "main secondary"
+            "main secondary";
+        grid-template-columns: 2fr 1fr ;
+    }
+
+    .main-section{
+        grid-area: main;
+        width: 100%;
+        
+    }
+    .secondary-section{
+        grid-area: secondary;
+    }
+}
+
+@media (min-width:1025px) {
+    :host{
+        margin-inline: 5%;
+    }
+}
+
+@media (min-width:1201px) {
+    :host{
+        margin-inline: 10%;
+    }
+}

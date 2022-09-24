@@ -5,10 +5,12 @@
 
 .graph__title{
     background-color: white;
-    padding: 1em;
+    height: 4rem;
+    padding-inline: 1em;
     margin-bottom: 3px;
     font-weight: 500;
-   
+    display: flex;
+    align-items: center;
 }
 
 .graph__main{
@@ -56,5 +58,11 @@
 }
 
 .graph__title, .graph__main{
-    margin-inline: 2rem;
+    margin-inline: 0rem;
+}
+
+@media (min-width:481px) {
+    .graph__title, .graph__main{
+        margin-inline: 0.7rem;
+    }
 }

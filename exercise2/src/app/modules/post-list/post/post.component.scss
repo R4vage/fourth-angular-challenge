@@ -1,0 +1,33 @@
+
+
+.post{
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    gap: 1em;
+    padding: 1em;
+    background-color: white;
+    img{
+        align-self: flex-start;
+        width: 2em;
+
+    }
+    .post__main{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        p{
+            span{
+                color: var(--link-color);
+                cursor: pointer;
+            }
+        }
+
+        .post__date{
+            color: lightgrey;
+        }
+    }
+}
+
+
