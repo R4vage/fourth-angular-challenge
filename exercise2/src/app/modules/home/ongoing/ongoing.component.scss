@@ -17,6 +17,10 @@
         color: var(--link-color);
         cursor: pointer;
     }
+
+    p:hover{ 
+        color:var(--link-hover)
+    }
 }
 
 .news-list{
