@@ -1,7 +1,6 @@
-
 abstract class Vehicle {
   
-  constructor(private _name: string, private _currentSpeed: number) {
+  constructor (private _name: string, private _currentSpeed: number) {
     if (_currentSpeed < 0) {
         this._currentSpeed = 0;
     } else if (_currentSpeed > 200) {
@@ -41,19 +40,19 @@ abstract class Vehicle {
     }
   }
 
-  accelerateVehicle(n:number){
+  accelerateVehicle (n:number) {
     for (var i = 0; i < n; i++) this.accelerateVehicleOnce();
   }
 
-  decelerateVehicle(n:number){
+  decelerateVehicle (n:number) {
     for (var i = 0; i < n; i++) this.decelerateVehicleOnce();
   }
 
-  consoleCurrentSpeed(){
+  consoleCurrentSpeed () {
     console.log(`${this.constructor.name} with name ${this.name} has a speed of ${this.currentSpeed} km/h`)
   }
 
-  static filterArrayByType (array:Vehicle[], type:vehicleTypes | any)  {
+  static filterArrayByType (array:Vehicle[], type:vehicleTypes | any) {
     return array.filter (vehicle=> vehicle instanceof type)
   }
 }
@@ -75,7 +74,7 @@ vehicleArray.push(hondaCivic, chevrolet, gryllindae, titanic, tango, boeing);
 
 type vehicleTypes =  Car | Plane | Boat
 
-vehicleArray.map((vehicle) => {
+vehicleArray.map ((vehicle) => {
   vehicle.accelerateVehicle(2)
   vehicle.decelerateVehicle(10)
   vehicle.consoleCurrentSpeed()
