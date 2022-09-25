@@ -23,7 +23,7 @@ abstract class Vehicle {
     this._currentSpeed = speed
   }
 
-  accelerateVehicle () {
+  accelerateVehicleOnce () {
     let newSpeed = this.currentSpeed + 1;
     if (newSpeed > 200) {
         this.currentSpeed = 200;
@@ -32,7 +32,7 @@ abstract class Vehicle {
     }
   }
 
-  decelerateVehicle () {
+  decelerateVehicleOnce () {
     let newSpeed = this.currentSpeed - 1;
     if (newSpeed < 0) {
         this.currentSpeed = 0;
@@ -40,15 +40,28 @@ abstract class Vehicle {
         this.currentSpeed = newSpeed;
     }
   }
+
+  accelerateVehicle(n:number){
+    for (var i = 0; i < n; i++) this.accelerateVehicleOnce();
+  }
+
+  decelerateVehicle(n:number){
+    for (var i = 0; i < n; i++) this.decelerateVehicleOnce();
+  }
+
+  consoleCurrentSpeed(){
+    console.log(`${this.constructor.name} with name ${this.name} has a speed of ${this.currentSpeed} km/h`)
+  }
+
+  static filterArrayByType (array:Vehicle[], type:vehicleTypes | any)  {
+    return array.filter (vehicle=> vehicle instanceof type)
+  }
 }
 
 class Car extends Vehicle {}
-
 class Plane extends Vehicle {}
-
 class Boat extends Vehicle {}
 
-let vehicleArray: Vehicle[] = [];
 
 const hondaCivic = new Car("hondaCivic", 30);
 const chevrolet = new Car("chevrolet", 40);
@@ -57,25 +70,17 @@ const titanic = new Boat("titanic", 20);
 const tango = new Plane("tango", 50);
 const boeing = new Plane("boeing", 200);
 
+let vehicleArray: Vehicle[] = [];
 vehicleArray.push(hondaCivic, chevrolet, gryllindae, titanic, tango, boeing);
 
 type vehicleTypes =  Car | Plane | Boat
 
-function filterArrayByType (array:Vehicle[], type:vehicleTypes | any)  {
-    array.map (vehicle => {
-        if(vehicle instanceof type){
-            console.log(vehicle.currentSpeed)
-        }
-    })
-}
-
 vehicleArray.map((vehicle) => {
-  for (var i = 0; i < 2; i++) vehicle.accelerateVehicle();
-  for (var i = 0; i < 10; i++) vehicle.decelerateVehicle();
-
-  console.log(
-    `Vehicle with name ${vehicle.name} has a speed of ${vehicle.currentSpeed} km/h`
-  );
+  vehicle.accelerateVehicle(2)
+  vehicle.decelerateVehicle(10)
+  vehicle.consoleCurrentSpeed()
 });
 
-filterArrayByType(vehicleArray, Car)
+Vehicle.filterArrayByType(vehicleArray, Car).map(vehicle => vehicle.consoleCurrentSpeed())
+Vehicle.filterArrayByType(vehicleArray, Boat).map(vehicle => vehicle.consoleCurrentSpeed())
+Vehicle.filterArrayByType(vehicleArray, Plane).map(vehicle => vehicle.consoleCurrentSpeed())
