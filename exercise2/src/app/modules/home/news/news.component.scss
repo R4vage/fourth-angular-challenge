@@ -2,6 +2,12 @@
     display: block;
     min-width: 10em;
     border: 1px solid var(--background-color);
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+:host:hover{
+    background-color: var(--background-light);
 }
 
 .new{

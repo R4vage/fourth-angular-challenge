@@ -26,15 +26,15 @@ body{
 
 /* Base */
 ::-webkit-scrollbar-track {
-  background: #b2d5f1;
+  background: var(--background-light)
 }
 
 /* Scroll */
 ::-webkit-scrollbar-thumb {
-  background: #32415B;
+  background: var(--darkest-color);
 }
 
 /* Hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #03172D;
+  background: var(--background-dark);
 }

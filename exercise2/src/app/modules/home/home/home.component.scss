@@ -32,6 +32,13 @@
 
 @media (min-width:1201px) {
     :host{
+        margin-inline: 7%;
+    }
+}
+
+
+@media (min-width:1401px) {
+    :host{
         margin-inline: 10%;
     }
 }
